@@ -1,0 +1,16 @@
+try out flask for python 
+
+copy UI from https://www.metrotransit.org/schedules-maps
+
+corey schafer is OP
+    https://www.youtube.com/watch?v=MwZwr5Tvyxo
+
+build a front end for selecting API calls 
+build python backend for doing that 
+maybe a database? 
+use typescript instead javascript 
+
+1) build back end for data to display in front 
+
+
+hot reloading - 
