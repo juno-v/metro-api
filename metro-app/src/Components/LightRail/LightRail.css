@@ -1,0 +1,24 @@
+#LightRailDivs {
+    color: black; 
+    border-style: solid; 
+    border-radius: 25px;
+    width: 200px; 
+    height: 50px; 
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center; 
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#LightRailIcon {
+    width: 50px; 
+    height: 50px;
+}
+
+#LightRailCategoryDiv {
+    width: 200px; 
+    height: 50px;
+    margin-left: 10px; 
+    margin-bottom: 10px;
+}
