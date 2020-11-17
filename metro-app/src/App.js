@@ -1,37 +1,45 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'; 
-//import {Routes} from "./Components/Routes"; 
 
 function App() {
 
-  const [routes, setRoutes] = useState([]); 
+  const [routes, setRoutes] = useState([])
 
   useEffect( () => {
     fetchRoutes(); 
   }, []); 
 
+  let noRoutesAlertMessage = 'There was an issue fetching the routes list. Please try again later.';
+
   const fetchRoutes = async () => {
     const response = await fetch("/routes")
     const data = await response.json();
-    setRoutes(data.length); 
-    console.log("DATA ARRAY: ", data)
+
+    if (response.status !== 200 ) {
+      alert(<h1> { noRoutesAlertMessage } </h1>); 
+      return; 
+    }
+
+    else {
+      setRoutes(data);
+      setRoutes((state) => {
+        // check if route state was updated with route list 
+        //console.log('hi this the data find me find me', state);
+        return state; 
+      })
   }
+}
+
+if (routes.length === 0) return <div> <h1> Fetching routes... </h1> </div>
 
   return (
 
     <div className="App">
-      hello world
-      
-     <br/>
-     {/* {routes.map((route, index) => {
-       return (
-         <li key={index}>
-           {route}
-         </li>
-       )
-     })} */}
-     {routes}
-
+      { routes.map((route, index) => (
+        <li key={index}>
+          {route["Description"]}
+        </li>
+      ))}
     </div>
   );
 }
