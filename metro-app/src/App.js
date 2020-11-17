@@ -10,7 +10,6 @@ function App() {
   return (
 
     <div className="App">
-      hello world
       <Header /> 
       <LightRail />
       {/* <Routes />  */}

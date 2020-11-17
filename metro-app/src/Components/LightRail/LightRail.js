@@ -1,8 +1,29 @@
 import React, { useState, useEffect } from 'react'; 
 import "./LightRail.css"
+import useFetch from "../Functions/useFetch"; 
 
 
 function LightRail () {
+
+    const [busLine, setSelectedBusLine] = useState(null);
+
+
+    const res = useFetch("/routes", {});
+    if (!res.response) {
+        return <div>Loading...</div>
+      }
+    const blueLine = res.response[0];
+    const greenLine = res.response[1];      
+
+    const test = (event) => {
+        console.log('hello world!!! ')
+        setSelectedBusLine(event.target.value);
+        setSelectedBusLine((state) => {
+            console.log(busLine)
+            return state; 
+        })
+    }
+
 
 return (
     <div> 
@@ -13,11 +34,16 @@ return (
             METRO Light Rails
         </div>
 
-        <div id="LightRailDivs">
+        <div id="LightRailDivs"
+        value={blueLine}
+        onClick={test}
+        >
             Blue Line 
         </div>
 
-        <div id="LightRailDivs">
+        <div id="LightRailDivs"
+        value={greenLine}
+        >
             Green Line
         </div>
     </div>
