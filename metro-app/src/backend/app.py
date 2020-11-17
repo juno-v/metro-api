@@ -1,11 +1,14 @@
 from flask import Flask
+import requests
+import json
 
-# __name__  checks file name 
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
-  return "Hello junomyname"
 
-if __name__ == "main":
-  app.run()
+@app.route('/route', methods=['GET'])
+def api():
+    r = requests.get('http://svc.metrotransit.org/NexTrip/Routes#response-json')
+
+    response = json.dumps(r.text, sort_keys=False, indent=2)
+
+    return response
