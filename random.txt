@@ -25,3 +25,6 @@ flask run
 # make sure to CD into backend folder 
 # always restart flask server after making changes, to show changes 
 # automate with a file 
+
+kill process 
+https://stackoverflow.com/questions/39632667/how-do-i-kill-the-process-currently-using-a-port-on-localhost-in-windows

@@ -1,22 +1,37 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'; 
+//import {Routes} from "./Components/Routes"; 
 
 function App() {
 
-  const [route, getRoute] = useState(0); 
+  const [routes, setRoutes] = useState([]); 
 
   useEffect( () => {
-    fetch("/routes").then(response =>
-      response.json().then(data => {
-        //getRoute(data.Description);
-        console.log(data)
-      })
-    );
-  }, []); // use empty array for when componet first mounts
+    fetchRoutes(); 
+  }, []); 
+
+  const fetchRoutes = async () => {
+    const response = await fetch("/routes")
+    const data = await response.json();
+    setRoutes(data.length); 
+    console.log("DATA ARRAY: ", data)
+  }
 
   return (
+
     <div className="App">
       hello world
+      
+     <br/>
+     {/* {routes.map((route, index) => {
+       return (
+         <li key={index}>
+           {route}
+         </li>
+       )
+     })} */}
+     {routes}
+
     </div>
   );
 }
