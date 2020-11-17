@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/route', methods=['GET'])
+@app.route('/routes', methods=['GET'])
 def api():
     r = requests.get('http://svc.metrotransit.org/NexTrip/Routes#response-json')
 
