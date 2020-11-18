@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'; 
 import Header from "./Components/Header/Header"; 
-import LightRail from "./Components/LightRail/LightRail";
 import Routes from "./Components/Pages/Routes";
 import Direction from "./Components/Pages/Direction"
 import Landing from "./Components/Pages/Landing";

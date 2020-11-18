@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react'; 
 import "./LightRail.css"
 import useFetch from "../Functions/useFetch"; 
+import Routes from "../Pages/Routes"; 
+import { useRoutes, A } from 'hookrouter';
+
+
+const routes = {
+    '/routes': () => <Routes />, 
+}
+
 
 
 function LightRail () {
 
     const [busLine, setSelectedBusLine] = useState(null);
+
+    
+    const match = useRoutes(routes); 
 
 
     const res = useFetch("/routes", {});
@@ -38,7 +49,11 @@ return (
         value={blueLine}
         onClick={test}
         >
-            Blue Line 
+            <span>
+                <A href="/routes"
+                onClick={() => window.location.reload(false)}
+                > Blue Line </A>
+            </span>
         </div>
 
         <div id="LightRailDivs"
@@ -46,6 +61,8 @@ return (
         >
             Green Line
         </div>
+
+        {match || <div>  </div> }
     </div>
     );
 }

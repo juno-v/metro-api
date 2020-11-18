@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Routes = () => {
     return (
         <div>
-            
+            hello world this is the routse page 
         </div>
     );
 };
