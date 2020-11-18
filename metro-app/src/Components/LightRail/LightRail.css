@@ -22,3 +22,8 @@
     margin-left: 10px; 
     margin-bottom: 10px;
 }
+
+.LightRail {
+    float: left; 
+    /* border-style: solid;  */
+}
