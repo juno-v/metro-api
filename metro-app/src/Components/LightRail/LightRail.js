@@ -50,7 +50,8 @@ return (
         onClick={test}
         >
             <span>
-                <A href="/routes"
+                <A 
+                href="/routes"
                 onClick={() => window.location.reload(false)}
                 > Blue Line </A>
             </span>

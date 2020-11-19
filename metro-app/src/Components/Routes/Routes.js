@@ -35,6 +35,10 @@ function Routes() {
 
 if (routes.length === 0) return <div> <h1> Fetching routes... </h1> </div>
 
+const showRoute = (route) => {
+  console.log(`The route that you clicked is: `, route)
+}
+
   return (
     <div className="Routes">
       <div>
@@ -44,7 +48,9 @@ if (routes.length === 0) return <div> <h1> Fetching routes... </h1> </div>
         /> 
       </div>
       { routes.map((route, index) => (
-        <div id="mappedRoutesDiv" key={index}>
+        <div id="mappedRoutesDiv" key={index} value={route["Route"]} 
+        onClick={() => showRoute(route["Route"])}
+        >
           {route["Route"]}
         </div>
       ))}
